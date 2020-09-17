@@ -249,9 +249,11 @@ def process(args):
     sub_G2 = get_subgraph(G2, nodes=args.nodes)
     matches, matches_ms = get_matches(sub_G1, sub_G2)
 
-    with open('credibility_matches.txt', 'w') as filehandle:
+    path = './data/subgraphs/'
+    with open(path + 'credibility_matches.txt', 'w') as filehandle:
 	    for listitem in matches_ms:
         	filehandle.write('%s\n' % str(listitem))
+
     print "-------Starting propagation on " + str(args.nodes) + " nodes sub-graph-------"
     refinement(matches_ms, sub_G1, sub_G2, G1, G2, args.propa_num)
     time_end = datetime.datetime.now()
