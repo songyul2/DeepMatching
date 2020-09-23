@@ -93,8 +93,11 @@ matplotlib==1.13.1
 ------------
 Installation
 ------------
-#. pip install -r requirements.txt
 
+virtualenv env 
+pip install setuptools==44
+From <https://askubuntu.com/questions/1025189/pip-is-not-working-importerror-no-module-named-pip-internal> 
+pip install -r requirements.txt 
 -----------------
 Important notice：
 -----------------
