@@ -95,8 +95,11 @@ Installation
 ------------
 
 virtualenv env 
+
 pip install setuptools==44
+
 From <https://askubuntu.com/questions/1025189/pip-is-not-working-importerror-no-module-named-pip-internal> 
+
 pip install -r requirements_corrected.txt
 -----------------
 Important notice：
