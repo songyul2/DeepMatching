@@ -93,8 +93,12 @@ matplotlib==1.13.1
 ------------
 Installation
 ------------
+not unique
 
-virtualenv env 
+ ~/.local/bin/pip install virtualenv --user
+
+~/.local/bin/virtualenv venv
+
 
 source venv/bin/activate
 
