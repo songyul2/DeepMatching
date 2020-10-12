@@ -163,11 +163,19 @@ def refinement(matches, sub_G1, sub_G2, G1, G2, propa_num):
     :param propa_num: the nodes' number of larger matching graph
     '''
     refined_matches = accuracy_propagation(matches, sub_G1, sub_G2)
+    path = './data/subgraphs/'
+    with open(path + '1st_propagation.txt', 'w') as filehandle:
+        for listitem in refined_matches:
+            filehandle.write('%s\n' % str(listitem))
     sub_Gs1 = get_subgraph(G1, nodes=propa_num)
     sub_Gs2 = get_subgraph(G2, nodes=propa_num)
     print "Get " + str(propa_num) + " nodes sub-network done!"
     print "-------Starting propagation on " + str(propa_num) + " nodes sub-graph-------"
-    accuracy_propagation(refined_matches, sub_Gs1, sub_Gs2)
+    refined_matches = accuracy_propagation(refined_matches, sub_Gs1, sub_Gs2)
 
+    path = './data/subgraphs/'
+    with open(path + '2st_propagation.txt', 'w') as filehandle:
+        for listitem in refined_matches:
+            filehandle.write('%s\n' % str(listitem))
 if __name__ == '__main__':
     main()
