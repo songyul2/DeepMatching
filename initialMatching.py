@@ -88,7 +88,7 @@ def bipartite_matching(G1, G2, p=1, q=1, dimensions=128, embedding='DeepWalk'):
         if p1 > len(node1) or p2 > len(node2):
             continue
         else:
-            matches.append((int(node1[p1]), int(node2[p2]), 1 - values_dict[(p1, p2)]))
+            matches.append(((node1[p1]), (node2[p2]), 1 - values_dict[(p1, p2)]))
     return matches
 
 def get_subgraph(real_G, nodes=500):
@@ -144,14 +144,14 @@ def load_file(file_path, undirected=True):
         if "#" not in item:
             if " " in item:
                 item = item.split(' ')
-                G.add_edge(int(item[0]), int(item[1]))
+                G.add_edge((item[0]), (item[1]))
                 if undirected:
-                    G.add_edge(int(item[1]), int(item[0]))
+                    G.add_edge((item[1]), (item[0]))
             else:
                 item = item.split('\t')
-                G.add_edge(int(item[0]), int(item[1]))
+                G.add_edge((item[0]), (item[1]))
                 if undirected:
-                    G.add_edge(int(item[1]), int(item[0]))
+                    G.add_edge((item[1]), (item[0]))
     txt_reader.close()
     return G
 
