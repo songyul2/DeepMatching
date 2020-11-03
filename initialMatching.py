@@ -144,14 +144,14 @@ def load_file(file_path, undirected=True):
         if "#" not in item:
             if " " in item:
                 item = item.split(' ')
-                G.add_edge((item[0]), (item[1]))
+                G.add_edge(item[0].rstrip(), item[1].rstrip())
                 if undirected:
-                    G.add_edge((item[1]), (item[0]))
+                    G.add_edge(item[1].rstrip(), item[0].rstrip())
             else:
                 item = item.split('\t')
-                G.add_edge((item[0]), (item[1]))
+                G.add_edge(item[0].rstrip(), item[1].rstrip())
                 if undirected:
-                    G.add_edge((item[1]), (item[0]))
+                    G.add_edge(item[1].rstrip(), item[0].rstrip())
     txt_reader.close()
     return G
 
