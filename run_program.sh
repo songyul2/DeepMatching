@@ -7,7 +7,7 @@ do
 filename=$(basename "$file")
 output="./data/align_${filename}_history"
 rm -f ${output}
-	for ((i=68; i<=100; i+=2));
+	for ((i=18; i<=100; i+=5));
 	do
 		nodes="$i"
 		{
