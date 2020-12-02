@@ -1,7 +1,7 @@
 from __future__ import division
 import math
 import datetime
-
+import ntpath
 from initialMatching import *
 from refinement import *
 
@@ -247,8 +247,11 @@ def process(args):
     G1, G2 = load_network(args.input1, args.input2)
     sub_G1 = get_subgraph(G1, nodes=args.nodes)
     sub_G2 = get_subgraph(G2, nodes=args.nodes)
-    matches, matches_ms = get_matches(sub_G1, sub_G2)
-
+    array, matches_ms = get_matches(sub_G1, sub_G2)
+    resultspath = './results/' + 'probability.matrix.' + ntpath.basename(args.input1) + ntpath.basename(args.input2)
+  
+    # not trivial to have both strings and floats in an np array
+    np.savetxt(resultspath, array, fmt='%s  %s  %s')  
     path = './data/subgraphs/'
     with open(path + 'credibility_matches.txt', 'w') as filehandle:
 	    for listitem in matches_ms:

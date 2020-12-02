@@ -78,12 +78,9 @@ def bipartite_matching(G1, G2, p=1, q=1, dimensions=128, embedding='DeepWalk'):
     '''
     node1, node2, proM = map_prob_maxtrix(G1, G2, p=p, q=q, dimensions=dimensions, embedding=embedding)
     M, N = proM.shape
-    values = [(node1[i], node2[j],  proM[i][j])
+    values = [(i, j, 1 - proM[i][j])
               for i in xrange(M)
               for j in xrange(N) if proM[i][j] > 1e-2]
-    a = np.array(values)
-    return a
-      
     values_dict = dict(((i, j), v) for i, j, v in values)
     munkres_match = munkres(values)
     matches = []
