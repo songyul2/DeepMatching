@@ -251,7 +251,7 @@ def process(args):
     resultspath = './results/' + 'probability.matrix.' + ntpath.basename(args.input1) + ntpath.basename(args.input2)
   
     # not trivial to have both strings and floats in an np array
-    np.savetxt(resultspath, array, fmt='%s  %s  %s')  
+    np.savetxt(resultspath, array, fmt='%s %s %s')  
     path = './data/subgraphs/'
     with open(path + 'credibility_matches.txt', 'w') as filehandle:
 	    for listitem in matches_ms:
