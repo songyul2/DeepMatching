@@ -1,5 +1,5 @@
 --------------------
-DeepMatching	adding features to a paper
+adding features to the DeepMatching paper
 --------------------
 --------------------
 A brief introduction
